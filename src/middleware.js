@@ -20,7 +20,8 @@ const passportAuth = (req, res, next) => {
       }
       res.status(200).send({
         status: 200,
-        msg:'Login successful!'
+        msg:'Login successful!',
+        succesRedirect:'/perfil'
       });
     });
   })(req, res, next);
