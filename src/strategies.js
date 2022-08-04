@@ -33,7 +33,7 @@ const config={
          const newuser =result.rows[0];
        
          console.log(newuser.clave);
-         const validpassword= await helpers.compararclave(password,newuser.clave) 
+         const validpassword= await helpers.compararclave(user.clave,newuser.clave) 
         
          if(validpassword){
           //password===newuser.clave
