@@ -8,6 +8,7 @@ const passportAuth = (req, res, next) => {
     if (!user) {
       return res.status(401).send({
         err: info,
+        msg: 'login failed'
       });
     }
     req.logIn(user, function (err) {
