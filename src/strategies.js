@@ -25,7 +25,7 @@ const config={
         username:username,
         clave:password
       }
-      const result= await pool.query('SELECT* FROM usuario WHERE username=$1',[user.username])
+      const result= await pool.query('SELECT* FROM usuarios WHERE username=$1',[user.username])
       if(result.rows.length>0){
          const newuser =result.rows[0];
          const validpassword= await helpers.compararclave(user.clave,newuser.clave) 
@@ -58,7 +58,7 @@ const config={
 
 
 passport.deserializeUser( async (id_usuario,done)=>{
-    const rows = await pool.query('SELECT * FROM usuario WHERE id_usuario=?',[id_usuario])
+    const rows = await pool.query('SELECT * FROM usuarios WHERE id_usuario=?',[id_usuario])
     done(null,rows[0])
 })
 
