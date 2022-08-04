@@ -5,9 +5,9 @@ const flash = require('express-flash')
 const passport = require('passport')
 const {Strategy} =require('passport-local')
 const { LocalStrategy } = require('./strategies')
-const Socketio= require('socket.io')
 
-///
+
+
 //middlewares
 app.use(session({
     secret:'jajaja',
@@ -33,16 +33,10 @@ passport.serializeUser((user, done) => {
 
 app.use( require('./routes/index.routes'))
 
-const port =process.env.PORT || 5000;
-const server=app.listen(port, ()=>{
-    console.log('Servidor activo en el puerto 5000')
-})
 
-const io=Socketio(server)
-
-//sockets
-io.on('connection',()=>{
-  console.log('un usuario se ha conectado')
+const Port =process.env.PORT || 5000;
+app.listen(Port, ()=>{
+    console.log('Servidor a la espera de conexiones')
 })
 
 
