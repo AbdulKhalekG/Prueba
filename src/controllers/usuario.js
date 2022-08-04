@@ -8,9 +8,6 @@ const searchusername=require('../database')
 const usuario = {}
 
 
-  
-
-
 usuario.register= (req,res)=>{
     try{
 createuser.createuser(req,res);
